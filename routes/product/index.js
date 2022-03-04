@@ -7,7 +7,6 @@ module.exports = async function (fastify, opts) {
         {
             id : 1,
             product_name : "gutiar",
-            
         }
     ]
     return requestData
