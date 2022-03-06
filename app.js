@@ -5,7 +5,9 @@ const AutoLoad = require('fastify-autoload')
 
 module.exports = async function (fastify, opts) {
   // Place here your custom code!
-
+  fastify.register(require('fastify-postgres'), {
+    connectionString: 'postgres://tjqncuxi:xDKz0l9EQ4hsnrWLmRxdpmlsHihVb8aG@arjuna.db.elephantsql.com/tjqncuxi'
+  })
   // Do not touch the following lines
 
   // This loads all plugins defined in plugins
