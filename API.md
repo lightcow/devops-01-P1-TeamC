@@ -68,6 +68,7 @@
 |-------|-----|------|------|-------|-----|
 |생성|장바구니 담기|POST|/order|
 ### 요청바디
+```
 headers
 {
   authorization: authorization token 
@@ -76,8 +77,9 @@ headers
     product_id : 1,
     quantity: 2
 }
-
+```
 ### 성공시 응답
+```
 {
     product_id : 1,
     quantity: 2,
@@ -85,11 +87,12 @@ headers
     product_img : ‘url’
 	ordered : 0
 }
-
+```
 |카테고리|기능|메소드|엔드포인트|요청바디|성공시 응답|
 |-------|-----|------|------|-------|-----|
 |조회|장바구니 전체 조회|GET|/order|none|res200
 ### 성공시 응답
+```
 [
 	{
     order_idx : 1
@@ -107,11 +110,12 @@ headers
 	},
 	.....
 ]
-
+```
 |카테고리|기능|메소드|엔드포인트|요청바디|성공시 응답|
 |-------|-----|------|------|-------|-----|
 |수정|장바구니 수량 수정|PUT|/order/:order_id|
 ### 요청바디
+```
 headers
 {
   authorization: authorization token // id
@@ -123,8 +127,9 @@ headers
 }
   ...
 ]
-
+```
 ### 성공시 응답
+```
 {
     order_idx : 1
     product_id : 1,
@@ -132,20 +137,23 @@ headers
     product_name : ‘서핑보드’,
     product_img : ‘url’
 }
-
+```
 
 |카테고리|기능|메소드|엔드포인트|요청바디|성공시 응답|
 |-------|-----|------|------|-------|-----|
 |삭제|장바구니 상품 삭제|DELETE|/order/:order_id|none|
 ### 성공시 응답
+```
 {
   status : ‘ok’
 }
+```
 
 |카테고리|기능|메소드|엔드포인트|요청바디|성공시 응답|
 |-------|-----|------|------|-------|-----|
 |수정|장바구니 상품 결제|PUT|/payment/:order_id|
 ### 요청바디
+```
 headers
 {
   authorization: authorization token
@@ -154,8 +162,9 @@ body
 {
   order_idx : 1
 }
-
+```
 ### 성공시 응답
+```
 [{
     order_idx : 1
     product_id : 1,
@@ -172,4 +181,4 @@ body
     product_img : ‘url’
     ordered : 1
 }]
-
+```
