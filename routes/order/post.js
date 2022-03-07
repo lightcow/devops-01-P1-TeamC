@@ -1,16 +1,11 @@
 'use strict'
 
 require('dotenv').config()
-<<<<<<< HEAD
-console.log(process.env)
-=======
->>>>>>> d8a3eafc8d588c7484e03fb36d3bde82c2de03f9
 
 module.exports = async function (fastify, opts) {
   fastify.post('/', async (req, reply) => {
     const client = await fastify.pg.connect()
     // const product_idx=req.body.product_idx;
-<<<<<<< HEAD
 
     const token=req.headers['authorization']
     const user = await client.query('SELECT user_idx from users where token=$1',[token])
@@ -31,17 +26,10 @@ module.exports = async function (fastify, opts) {
       if(user.rows[0])
         {
       const user_idx = await client.query(
-=======
-    const user_id=req.body.user_id;
-    const product_id=req.body.product_id;
-    const quantity=req.body.quantity;
-    const user_idx = await client.query(
->>>>>>> d8a3eafc8d588c7484e03fb36d3bde82c2de03f9
         "select user_idx from users where id='"+user_id+"'")
         console.log("=========")
         console.log(user_idx.rows[0].user_idx);
     const insert_order = await client.query(
-<<<<<<< HEAD
       'INSERT INTO orders VALUES(default,'+quantity+','+'false'+','+user.rows[0].user_idx+','+product_id+')')
     const send_req = await client.query(
       'select o.product_idx, quantity, product_name, product_img from orders as o JOIN products as p ON o.product_idx = p.product_idx WHERE user_idx ='+user_idx.rows[0].user_idx +'AND o.product_idx='+product_id)
@@ -69,13 +57,3 @@ module.exports = async function (fastify, opts) {
 //응답으로는 product_id,quantity,product_name,product:img 응답
 //알고리즘 생각 여러개body를 받았을때 if(body)수를 구분할수있는가?
 //장바구니 담기
-=======
-      'INSERT INTO orders VALUES(default,'+quantity+','+'false'+','+user_idx.rows[0].user_idx+','+product_id+')')
-      const send_req = await client.query()
-      reply
-      .code(200)
-      .header('content-type','application/json')
-      .send()
-  })
-}
->>>>>>> d8a3eafc8d588c7484e03fb36d3bde82c2de03f9
