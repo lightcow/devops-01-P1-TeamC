@@ -35,6 +35,10 @@ module.exports = async function (fastify, opts) {
   })
 
   // Place here your custom code!
+  
+  fastify.register(require('fastify-postgres'), {
+    connectionString: 'postgres://wmwuckei:DsK2eSjmdGHRDsWC5CM_-JcGU8wGfWNw@arjuna.db.elephantsql.com/wmwuckei'
+  })
 
   // Do not touch the following lines
 
