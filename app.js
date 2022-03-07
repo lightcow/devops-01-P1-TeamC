@@ -2,7 +2,7 @@
 
 const path = require('path')
 const AutoLoad = require('fastify-autoload')
-
+const url=process.env.ElEPHANTSQL_URL
 module.exports = async function (fastify, opts) {
   // Place here your custom code!
   
@@ -23,6 +23,6 @@ module.exports = async function (fastify, opts) {
     options: Object.assign({}, opts)
   })
     fastify.register(require('fastify-postgres'), {
-    connectionString: 'postgres://tjqncuxi:xDKz0l9EQ4hsnrWLmRxdpmlsHihVb8aG@arjuna.db.elephantsql.com/tjqncuxi'
+    connectionString: url
   })
 }
