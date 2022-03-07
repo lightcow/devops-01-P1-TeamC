@@ -21,3 +21,4 @@ module.exports = async function (fastify, opts) {
   })
 }
 //userid와 pw가 맞을때 orders에서 userid와 일치한 값을 받아온다
+//장바구니전체조회

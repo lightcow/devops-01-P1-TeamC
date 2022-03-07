@@ -33,4 +33,4 @@ module.exports = async function (fastify, opts) {
 //orders에 orders_idx랑 quantity orddered:default0 user_id product_id를 저장하고
 //응답으로는 product_id,quantity,product_name,product:img 응답
 //알고리즘 생각 여러개body를 받았을때 if(body)수를 구분할수있는가?
-//
+//장바구니 담기
