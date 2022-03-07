@@ -1,70 +1,81 @@
 'use strict'
 
+//const order = require('../../model/video.js')
+//const { readAll, readOne }= require('../../model/video.js')
+
 module.exports = async function (fastify, opts) {
   fastify.get('/', async function (request, reply) {
-
-    const responseData = [
-
-        {
-            video_idx: 1,
-            title: '초보자도 쉽게 배우는 서핑',
-            youtube_url: 'https://www.youtube.com/watch?v=f3m_WqxhL4o',
-            tag : '서핑보드 패들링'
-        },
-        {
-            video_idx: 3,
-            title: '재미있는 서핑 레슨',
-            youtube_url: 'https://www.youtube.com/watch?v=BHvaJvWW-L0',
-            tag : '리쉬 스펀지보드 하드보드'
-        }
-
-    ]
+    
+    //const promises = this.mongo.db.collection('cozstory')
+    //const result = await readAll(this.mongo)
+    
+    const client = await fastify.pg.connect()
+    const { rows } = await client.query(
+      'SELECT * FROM videos',
+    )
+    client.release()
+    //return rows
 
     reply
-    .code(200)
-    .header('Content-Type', 'application/json')
-    .send(responseData)
+      .send(rows)
+      .code(200)
+      .header('Content-Type', 'application/json')
 
+
+    //복사 붙여넣기 
+    //onConnect 
+    //query >> reply.send >> []빈칸
+    //acync 를 빼기 
+     
   })
 
   fastify.get('/:id', async function (request, reply) {
-    //const result = await readOne(this.mongo, request.params)
 
-      const responseData = [//response 데이터 배열
+      const id = request.params.id;
 
-        {//response객체
-            video_idx: 1,
-            title: '초보자도 쉽게 배우는 서핑',
-            youtube_url: 'https://www.youtube.com/watch?v=f3m_WqxhL4o',
-            product : [//product 배열객체
-         
-                { 
-                    product_idx : 1,
-                    price : 10000,
-                    product_name : '서핑보드',
-                    product_img : 'url'
-                },
-            
-                { 
-                    product_idx : 2,
-                    price : 10000,
-                    product_name : '서핑리쉬',
-                    product_img : 'url'
-                }
-            ]//배열객체
+      const client = await fastify.pg.connect()
+
+      const videos = await client.query(
+        'SELECT * FROM videos WHERE video_idx =$1', [id]
+       )
         
-        }//response
+      const products = await client.query(
+        'SELECT * FROM products WHERE video_idx =$1', [id]
+      )
+      client.release() 
 
-      ]
+      //x맞지않다 
+      
 
-      reply
+      console.log('==============videos===============')
+      console.log(videos.rows)
+      console.log('==============rows===============')
+      console.log(products.rows);
+      console.log('==============result===============')
+      
+      
+      var resultObj={};
+      resultObj['video']=videos.rows[0];
+      resultObj['products']=products.rows;
+
+      console.log(resultObj)
+
+      //video.rows 
+      
+      //query 문에서 join으로 결과값을 받아오는것이 좋음 > db에서 결과값을 받아오는게 best 
+
+      //객체 안에 배열 넣기 
+      //객체 안에 값 추가하기 << 객체에서 뽑아내기
+
+      //어떻게 쓸것인가????구조네네네 
+
+      //구조판단하기 
+
+    reply
+      .send(resultObj)
       .code(200)
-      .header('Content-Type','application/json')
-      .send(responseData)
+      .header('Content-Type', 'application/json')
 
   })
-
-
-
 
 }
