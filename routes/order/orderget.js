@@ -8,11 +8,11 @@ module.exports = async function (fastify, opts) {
     const client = await fastify.pg.connect()
     //console.log(client)
     const { rows } = await client.query(
-      'select * from orders where user_useridx='+1)
+      'select * from orders where user_idx='+1)
     // const{rows1} = await client.query(
-    //     'select * from users where user_idx=1')
-    //     console.log("userrows===========",{rows1})
-     console.log("userrows1===========",{rows})
+    //    'select * from users where user_idx=1')
+    //   console.log("userrows===========",{rows1})
+    //  console.log("userrows1===========",{rows})
       reply
       .code(200)
       .header('content-type','application/json')
@@ -21,4 +21,3 @@ module.exports = async function (fastify, opts) {
   })
 }
 //userid와 pw가 맞을때 orders에서 userid와 일치한 값을 받아온다
-//장바구니전체조회

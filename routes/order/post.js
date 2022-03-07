@@ -26,12 +26,13 @@ module.exports = async function (fastify, opts) {
         console.log(user_idx.rows[0].user_idx);
     const insert_order = await client.query(
       'INSERT INTO orders VALUES(default,'+quantity+','+'false'+','+user_idx.rows[0].user_idx+','+product_id+')')
-      const send_req = await client.query()
+    const send_req = await client.query(
+      'select o.product_idx, quantity, product_name, product_img from orders as o JOIN products as p ON o.product_idx = p.product_idx WHERE user_idx ='+user_idx.rows[0].user_idx +'AND o.product_idx='+product_id)
       //order_idx,quantity,ordered,user_useridx,product_idx
       reply
       .code(200)
       .header('content-type','application/json')
-      .send()
+      .send(send_req.rows)
      //}
   })
 }
