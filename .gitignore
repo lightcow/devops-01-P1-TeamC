@@ -56,3 +56,9 @@ profile-*
 profile*
 *clinic*
 *flamegraph*
+
+# env
+.env
+
+package.json
+package-lock.json
