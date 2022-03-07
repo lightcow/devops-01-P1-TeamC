@@ -94,7 +94,7 @@ headers
 ### 성공시 응답
 ```
 [
-	{
+{
     order_idx : 1
     product_id : 1,
     quantity: 2,
@@ -107,7 +107,7 @@ headers
     quantity: 1,
     product_name : ‘서핑리쉬’, //가공
     product_img : ‘url’//가공  
-	},
+},
 	.....
 ]
 ```
