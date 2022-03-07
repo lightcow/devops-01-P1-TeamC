@@ -12,7 +12,7 @@ module.exports = async function (fastify, opts) {
       if(user.rows[0])
         {
    
-    // const orderidx=req.parms.id;
+    // const orderidx=req.parms.id;s
     // console.log("del====",orderidx.rows)
     const del_order = await client.query(
       'DELETE FROM orders WHERE order_idx=$1',[req.params.order_idx])
