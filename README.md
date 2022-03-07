@@ -18,6 +18,7 @@ For production mode
 
 Run the test cases.
 
-### 사용 기술 스택  
+### '사용 기술 스택'  
+![Badge](https://img.shields.io/badge/{ label }-{ message }.svg?{ style(optional) }&logo={ postgresql }&logoColor={ #4169E1})
 <img src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white">
 <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white">
