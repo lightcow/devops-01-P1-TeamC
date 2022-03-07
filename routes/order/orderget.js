@@ -1,6 +1,7 @@
 'use strict'
 
 require('dotenv').config()
+<<<<<<< HEAD
 console.log(process.env)
 
 module.exports = async function (fastify, opts) {
@@ -19,10 +20,20 @@ module.exports = async function (fastify, opts) {
     // const{rows1} = await client.query(
     //    'select * from users where user_idx=1')
     //   console.log("user0rrows1===========",{rows})
+=======
+
+module.exports = async function (fastify, opts) {
+  fastify.get('/', async (req, reply) => {
+    const client = await fastify.pg.connect()
+    const { rows } = await client.query(
+      'select * from orders where order_idx = ' +1)
+      //쿼리문 여기에
+>>>>>>> d8a3eafc8d588c7484e03fb36d3bde82c2de03f9
       reply
       .code(200)
       .header('content-type','application/json')
       .send(rows)
+<<<<<<< HEAD
     }
     else{
       if(token){
@@ -38,3 +49,9 @@ module.exports = async function (fastify, opts) {
   
 }
 //userid와 pw가 맞을때 orders에서 userid와 일치한 값을 받아온다
+=======
+  })
+}
+//userid와 pw가 맞을때 orders에서 userid와 일치한 값을 받아온다
+//장바구니전체조회
+>>>>>>> d8a3eafc8d588c7484e03fb36d3bde82c2de03f9

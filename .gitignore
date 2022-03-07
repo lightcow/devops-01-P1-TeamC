@@ -57,4 +57,12 @@ profile*
 *clinic*
 *flamegraph*
 
+<<<<<<< HEAD
 .env
+=======
+# env
+.env
+
+package.json
+package-lock.json
+>>>>>>> d8a3eafc8d588c7484e03fb36d3bde82c2de03f9
