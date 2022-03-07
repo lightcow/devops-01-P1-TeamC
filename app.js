@@ -5,6 +5,11 @@ const AutoLoad = require('fastify-autoload')
 
 module.exports = async function (fastify, opts) {
   // Place here your custom code!
+  const fastify = require('fastify')()
+
+  fastify.register(require('fastify-postgres'), {
+    connectionString: 'postgres://postgres@localhost/postgres'
+  })
 
   // Do not touch the following lines
 
