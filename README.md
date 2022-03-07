@@ -1,5 +1,5 @@
-# Getting Started with Fastify-CLI [Fastify-CLI](https://www.npmjs.com/package/fastify-cli)
-This project was bootstrapped with Fastify-CLI.
+# proejct1  
+### youtube 동영상과 취미 용품 구매 목록
 
 ## Available Scripts
 
@@ -18,6 +18,6 @@ For production mode
 
 Run the test cases.
 
-## Learn More
-
-To learn Fastify, check out the [Fastify documentation](https://www.fastify.io/docs/latest/).
+### 사용 기술 스택  
+<img src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white">
+<img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white">
